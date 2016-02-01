@@ -16,3 +16,26 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ #new-idea-form {
+   margin-top: 50px;
+   border: 1px solid #ccc;
+   padding: 25px;
+
+   input {
+     width:100%;
+     margin-bottom: 20px;
+   }
+
+   textarea {
+     width: 100%;
+     height: 75px;
+   }
+ }
+
+ .idea {
+   border: 1px solid #ccc;
+   padding: 25px;
+   margin: 15px 0;
+
+ }
