@@ -7,6 +7,7 @@ $(document).ready( () => {
   createIdea();
   ratings();
   showForm();
+  searchBox();
 });
 
 var renderIdea = (idea) => {
