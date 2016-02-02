@@ -17,3 +17,10 @@ var addIdea = (idea) => {
     }
   })
 }
+
+var showForm = () => {
+  $('.show-link').on('click', (e) => {
+    $('.show-link').hide();
+    $('#new-idea-form').fadeIn();
+  })
+}

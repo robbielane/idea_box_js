@@ -6,6 +6,7 @@ $(document).ready( () => {
   editButtons();
   createIdea();
   ratings();
+  showForm();
 });
 
 var renderIdea = (idea) => {
@@ -36,11 +37,18 @@ var loadIdeas = () => {
 };
 
 var truncateBody = () => {
-  $('.idea-body').each( (index, body) => {
-    if (body.innerHTML.length > 100) {
-      body.innerHTML = body.innerHTML.substr(0, 100)
-      $(body).append(`<br><small><a href='#'> Show More</a></small>`)
-    }
-  })
-
+  // $('.idea-body').each( (index, body) => {
+  //   var content = body.innerHTML
+  //   if (body.innerHTML.length > 100) {
+  //     body.innerHTML = body.innerHTML.substr(0, 100) + '...'
+  //     $(body).append(`<br><small><a href='#' class='more'>Show More</a></small>`)
+  //
+  //   }
+  // })
+  //
+  // $('.more').on('click', (e) => {
+  //   e.preventDefault();
+  //   console.log($(this))
+  //   body.innerHTML = content
+  // })
 }
