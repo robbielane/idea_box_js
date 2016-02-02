@@ -38,8 +38,8 @@ var loadIdeas = () => {
 var truncateBody = () => {
   $('.idea-body').each( (index, body) => {
     if (body.innerHTML.length > 100) {
-      console.log(body.innerHTML.substr(0, 100))
       body.innerHTML = body.innerHTML.substr(0, 100)
+      $(body).append(`<br><small><a href='#'> Show More</a></small>`)
     }
   })
 
