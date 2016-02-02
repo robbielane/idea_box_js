@@ -1,7 +1,7 @@
 var editButtons = () => {
  $('#ideas').delegate('.edit-idea', 'click', (e) => {
    var $idea = $(e.toElement).parent();
-   var rating = $idea.children('h5')[0].innerHTML
+   var rating = $idea.children('.idea-rating')[0].innerHTML
    addEditForm($idea);
    editSubmit($idea, rating);
  })

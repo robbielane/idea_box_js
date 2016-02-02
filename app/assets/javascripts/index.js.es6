@@ -5,13 +5,16 @@ $(document).ready( () => {
   deleteButtons();
   editButtons();
   createIdea();
+  ratings();
 });
 
 var renderIdea = (idea) => {
   $('#ideas').prepend(
     `<div class='idea' data-id='${idea.id}'>` +
       `<h3 class='idea-title'>${idea.title}</h3>` +
-      `<h5> ${idea.rating}</h5>` +
+      `<a href='#' class="up"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></a>` +
+      `<h5 class='idea-rating'>${idea.rating}</h5>` +
+      `<a href='#' class='down'><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>` +
       `<p class='idea-body'>${idea.body}</p>` +
       `<button class='delete-idea btn btn-sm btn-default'>Delete</button>` +
       `<button class='edit-idea btn btn-sm btn-default'>Edit</button>` +
