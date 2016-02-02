@@ -7,7 +7,9 @@ var ratings = () => {
     var rating = $idea.children('.idea-rating')[0].innerHTML
     var newRating = ratingValues[ratingValues.indexOf(rating) + 1]
 
-    updateRating($idea, newRating)
+    if (rating !== 'genius') {
+      updateRating($idea, newRating)
+    }
   });
 
   $('#ideas').delegate('.down', 'click', (e) => {
@@ -16,7 +18,9 @@ var ratings = () => {
     var rating = $idea.children('.idea-rating')[0].innerHTML
     var newRating = ratingValues[ratingValues.indexOf(rating) - 1]
 
-    updateRating($idea, newRating)
+    if (rating !== 'swill') {
+      updateRating($idea, newRating)
+    }
   });
 }
 
