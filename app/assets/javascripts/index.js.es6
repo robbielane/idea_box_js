@@ -13,8 +13,8 @@ var renderIdea = (idea) => {
       `<h3 class='idea-title'>${idea.title}</h3>` +
       `<h5> ${idea.rating}</h5>` +
       `<p class='idea-body'>${idea.body}</p>` +
-      `<button class='delete-idea'>Delete</button>` +
-      `<button class='edit-idea'>Edit</button>` +
+      `<button class='delete-idea btn btn-sm btn-default'>Delete</button>` +
+      `<button class='edit-idea btn btn-sm btn-default'>Edit</button>` +
     `</div>`
   )
 };
