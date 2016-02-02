@@ -18,8 +18,8 @@ var renderIdea = (idea) => {
       `<h5 class='idea-rating'>${idea.rating}</h5>` +
       `<a href='#' class='down'><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>` +
       `<p class='idea-body'>${idea.body}</p>` +
-      `<button class='delete-idea btn btn-sm btn-default'>Delete</button>` +
-      `<button class='edit-idea btn btn-sm btn-default'>Edit</button>` +
+      `<button class='delete-idea btn btn-danger btn-sm btn-default'>Delete</button>` +
+      `<button class='edit-idea btn btn-info btn-sm btn-default'>Edit</button>` +
     `</div>`
   )
 };
@@ -38,18 +38,20 @@ var loadIdeas = () => {
 };
 
 var truncateBody = () => {
-  // $('.idea-body').each( (index, body) => {
-  //   var content = body.innerHTML
-  //   if (body.innerHTML.length > 100) {
-  //     body.innerHTML = body.innerHTML.substr(0, 100) + '...'
-  //     $(body).append(`<br><small><a href='#' class='more'>Show More</a></small>`)
-  //
-  //   }
-  // })
-  //
-  // $('.more').on('click', (e) => {
-  //   e.preventDefault();
-  //   console.log($(this))
-  //   body.innerHTML = content
-  // })
+  var bodies = {}
+  $('.idea-body').each( (index, body) => {
+    var ideaId = $(body).closest('div').data('id')
+    bodies[ideaId] = body.innerHTML
+    if (body.innerHTML.length > 100) {
+      body.innerHTML = bodies[ideaId].substr(0, 100) + '...'
+      $(body).append(`<br><small><a href='#' class='more'>Show More</a></small>`)
+
+    }
+  })
+
+  $('.more').on('click', function(e) {
+    e.preventDefault();
+    var ideaId = $(e.toElement).closest('div').data('id')
+    $(this).closest('p')[0].innerHTML = bodies[ideaId]
+  })
 }
