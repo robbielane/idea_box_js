@@ -12,6 +12,7 @@ var addIdea = (idea) => {
     url: 'api/v1/ideas',
     data: idea,
     success: (idea) => {
+      $("input[type=text], textarea").val('')
       renderIdea(idea);
     }
   })
