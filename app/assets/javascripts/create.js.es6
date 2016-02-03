@@ -13,7 +13,8 @@ var addIdea = (idea) => {
     data: idea,
     success: (idea) => {
       $("input[type=text], textarea").val('')
-      renderIdea(idea);
+      var newIdea = renderIdea(idea);
+      prependIdeas(newIdea)
     }
   })
 }
