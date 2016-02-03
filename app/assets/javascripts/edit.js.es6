@@ -15,7 +15,7 @@ var addEditForm = (idea) => {
     `<form id="edit-idea-form">
       <input type='text' name='title' value='${title}' />
       <textarea name='body'>${body}</textarea>
-      <button class='edit-idea-btn btn btn-info btn-sm btn-default'>Edit Idea</button>
+      <button class='edit-idea-btn btn btn-info btn-sm btn-default'>Save</button>
     </form>`
   )
 }
