@@ -9,11 +9,13 @@ var editButtons = () => {
 
 var addEditForm = (idea) => {
   $.getJSON(`/api/v1/ideas/${$(idea).data('id')}`).then( (response) => {
+    var tags = response.idea.tags.map( (tag) => { return tag.name })
     idea.children().remove();
     idea.append(
       `<form id="edit-idea-form">
         <input type='text' name='title' value='${response.idea.title}' />
         <textarea name='body'>${response.idea.body}</textarea>
+        <input type='text' name='tags' placeholder="Tags (comma separated)" value='${tags.join(', ')}' />
         <button class='edit-idea-btn btn btn-info btn-sm btn-default'>Save</button>
       </form>`
     )
@@ -24,8 +26,9 @@ var editSubmit = (idea, rating) => {
   $('.idea').delegate('.edit-idea-btn', 'click', (e) => {
     e.preventDefault();
     var editedIdea = {
-      title: idea.find('input').val(),
-      body: idea.find('textarea').val()
+      title: idea.find("input[name='title']").val(),
+      body: idea.find('textarea').val(),
+      tags: idea.find("input[name='tags']").val()
     }
     $.ajax({
       type: 'PATCH',
