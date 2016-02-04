@@ -2,6 +2,7 @@
 
 $(document).ready( () => {
   loadIdeas();
+  fetchTags();
   deleteButtons();
   editButtons();
   createIdea();
