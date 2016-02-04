@@ -11,9 +11,8 @@ var addIdea = (idea) => {
     type: 'POST',
     url: 'api/v1/ideas',
     data: idea,
-    success: (idea) => {
-      $("input[type=text], textarea").val('')
-      var newIdea = renderIdea(idea);
+    success: (response) => {
+      var newIdea = renderIdea(response.idea);
       prependIdeas(newIdea)
     }
   })
