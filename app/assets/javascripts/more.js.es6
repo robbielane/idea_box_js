@@ -13,7 +13,7 @@ var getBody = (idea) => {
     url: `/api/v1/ideas/${$(idea).data('id')}`,
     success: (get) => {
       $(idea).find('.idea-body').replaceWith(
-        `<p class='idea-body'>${get.body}</p>`
+        `<p class='idea-body'>${get.idea.body}</p>`
       );
     }
   });

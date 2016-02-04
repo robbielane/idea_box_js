@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :ideas,
                 only: [:index, :create, :update, :destroy, :show],
                 defaults: { format: :json}
+      resources :tags, only: [:index], defaults: { format: :json }
     end
   end
 end

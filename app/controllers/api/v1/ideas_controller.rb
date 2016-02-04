@@ -10,11 +10,14 @@ class Api::V1::IdeasController < ApplicationController
   end
 
   def create
-    respond_with :api, :v1, Idea.create(idea_params)
+    idea = Idea.create(title: params[:title], body: params[:body])
+    Tag.add_tags(params[:tags], idea) if params[:tags]
+    respond_with :api, :v1, idea
   end
 
   def update
     idea = Idea.find(params[:id])
+    Tag.add_tags(params[:tags], idea) if params[:tags]
     idea.update_attributes(idea_params)
     respond_with idea
   end
@@ -26,7 +29,6 @@ class Api::V1::IdeasController < ApplicationController
   private
 
   def idea_params
-    params.permit(:title, :body, :rating)
+    params.permit(:id, :title, :body, :rating)
   end
-
 end
