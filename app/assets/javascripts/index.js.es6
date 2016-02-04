@@ -3,6 +3,8 @@
 $(document).ready( () => {
   loadIdeas();
   fetchTags();
+  tagButtons();
+  clearFiltersButton();
   deleteButtons();
   editButtons();
   createIdea();
