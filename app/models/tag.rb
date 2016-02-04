@@ -6,7 +6,7 @@ class Tag < ActiveRecord::Base
   def self.add_tags(tags, idea)
     tags = tags.split(',')
     tags.each do |tag|
-      if !idea.tags.find_by(name: tag)
+      if !idea.tags.find_by(name: tag.strip.downcase)
         idea.tags << Tag.find_or_create_by(name: tag.strip.downcase)
       end
     end
