@@ -31,6 +31,6 @@ var prependIdeas = (ideas) => {
 }
 
 var loadIdeas = () => {
-  $.getJSON('/api/v1/ideas').then(ideas => ideas.map(renderIdea))
+  $.getJSON('/api/v1/ideas').then(response => response.ideas.map(renderIdea))
                             .then(prependIdeas)
 };
